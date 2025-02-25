@@ -1,7 +1,8 @@
 import { test, expect } from 'playwright-test-coverage';
 
 test('home page', async ({ page }) => {
-  await page.goto('/');
+//   await page.goto('/');
+    await page.goto('http://localhost:5173/');
 
   expect(await page.title()).toBe('JWT Pizza');
 });
@@ -69,8 +70,8 @@ test('purchase with login', async ({ page }) => {
       await route.fulfill({ json: orderRes });
     });
   
-    await page.goto('/');
-  
+    // await page.goto('/');
+    await page.goto('http://localhost:5173/');
     // Go to order page
     await page.getByRole('button', { name: 'Order now' }).click();
   
